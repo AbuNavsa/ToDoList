@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors } from './Colors';
 import Task from './Components/Task';
 
@@ -17,6 +17,14 @@ export default function App() {
         </View>
       
       </View>
+
+      <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.writeTaskWrapper}
+      >
+        <TextInput style={styles.input} placeholder={"Write a task here"}/>
+      </KeyboardAvoidingView>
+    
     </View>
   );
 }
